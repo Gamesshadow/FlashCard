@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/note"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    android:minHeight="80dp"
+    app:cardBackgroundColor="@color/colorPrimary"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="0dp"
+    app:cardMaxElevation="0dp"
+    app:cardPreventCornerOverlap="false">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/note_delete"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:elevation="1dp"
+            android:visibility="gone"
+            android:src="@drawable/ic_delete"
+            app:tint="@color/colorPrimaryDark" />
+
+        <TextView
+            android:id="@+id/note_question"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_toStartOf="@+id/note_delete"
+            android:background="@drawable/note_bg_border"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Question Here"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:id="@+id/note_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/note_question"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_above="@+id/note_date"
+            android:layout_marginBottom="10dp"
+            android:layout_toStartOf="@+id/note_delete"
+            android:background="@drawable/note_bg_border"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Text Here"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:id="@+id/note_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:gravity="center|start"
+            android:layout_margin="10dp"
+            android:padding="5dp"
+            android:textColor="@android:color/white"
+            tools:text="date" />
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

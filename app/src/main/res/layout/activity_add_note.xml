@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/add_note_background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark">
+
+
+    <LinearLayout
+        android:id="@+id/add_note_window_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+
+            android:background="@color/Black">
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/add_note_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:padding="15dp"
+                android:text="Add Card"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/add_note_delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="5dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:text="Delete"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/note_bg_layout"
+              android:backgroundTint="@color/colorPrimaryDark"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/add_note_text_bg"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="12dp"
+            android:layout_weight="1"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/add_note_question"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/note_bg_layout"
+                android:backgroundTint="@color/LightGrey"
+                android:gravity="top"
+                android:hint="Enter question here..."
+                android:inputType="textMultiLine"
+                android:padding="10dp"
+                android:textColor="@android:color/black"
+                android:textCursorDrawable="@drawable/note_text_cursor_color"
+                android:textSize="16sp"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/add_note_text"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_below="@+id/add_note_question"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/note_bg_layout"
+                android:backgroundTint="@color/LightGrey"
+                android:gravity="top"
+                android:hint="Enter answer here..."
+                android:inputType="textMultiLine"
+                android:padding="10dp"
+                android:textColor="@android:color/black"
+                android:textCursorDrawable="@drawable/note_text_cursor_color"
+                android:textSize="16sp"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnSelectColor"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_below="@id/add_note_text"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/note_button_bg_layout"
+                android:backgroundTint="@color/colorPrimary"
+                android:paddingHorizontal="10dp"
+                android:text="Choose background"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
+
+            <View
+                android:id="@+id/viewColor"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_below="@id/add_note_text"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_toEndOf="@+id/btnSelectColor"
+                android:background="@color/Black"
+                android:paddingHorizontal="10dp" />
+
+        </RelativeLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/add_note_button"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/note_bg_layout"
+            android:padding="10dp"
+            android:text="Add/Update Note"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            tools:ignore="TouchTargetSizeCheck" />
+
+
+    </LinearLayout>
+</RelativeLayout>

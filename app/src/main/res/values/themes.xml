@@ -1,0 +1,17 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.FlashCard" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryVariant">@color/colorPrimaryDark</item>
+        <item name="colorOnPrimary">@color/colorPrimaryDark</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">@color/colorPrimary</item>
+        <!-- Customize your theme here. -->
+    </style>
+    <style name="FloatingAccentButtonOverlay" >
+        <item name="colorSecondary">@color/colorPrimary</item>
+        <!-- color used by the icon -->
+        <item name="colorOnSecondary">@color/colorPrimaryDark</item>
+    </style>
+</resources>
