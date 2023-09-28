@@ -8,9 +8,8 @@ import androidx.room.RoomDatabase;
 import androidx.room.TypeConverters;
 
 @Database(
-        entities = {Note.class},
-        version = 1,
-        exportSchema = true
+        entities = {Note.class, Users.class},
+        version = 2
 )
 @TypeConverters(NoteConverters.class)
 public abstract class NoteDatabase extends RoomDatabase {

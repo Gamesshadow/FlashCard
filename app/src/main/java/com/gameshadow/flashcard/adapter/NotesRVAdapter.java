@@ -43,6 +43,7 @@ public class NotesRVAdapter extends ListAdapter<Note, NotesRVAdapter.NoteHolder>
 
         CardView note = noteHolder.itemView.findViewById(R.id.note);
         TextView note_text = noteHolder.itemView.findViewById(R.id.note_text);
+
         note.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -12,7 +12,6 @@ public class Note implements Serializable {
 
 
     @PrimaryKey
-    @NonNull
     @ColumnInfo(name = "dateAdded")
     private String dateAdded;
 
