@@ -21,6 +21,8 @@ public class Users implements Serializable {
     private String LastName;
     @ColumnInfo(name = "Email")
     private String Email;
+    @ColumnInfo(name = "Parent_Email")
+    private String ParentEmail;
     @ColumnInfo(name = "Password")
     private String Password;
     @ColumnInfo(name = "isAdmin")
@@ -30,13 +32,14 @@ public class Users implements Serializable {
     public Users() {
     }
     // Constructor
-    public Users(@NonNull String dateAdded, String FirstName, String Lastname, String Email, String Password,boolean isAdmin) {
+    public Users(@NonNull String dateAdded, String FirstName, String Lastname, String Email, String ParentEmail, String Password,boolean isAdmin) {
         this.dateAdded = dateAdded;
         this.FirstName = FirstName;
         this.LastName = LastName;
         this.Email = Email;
         this.Password = Password;
         this.isAdmin = isAdmin;
+        this.ParentEmail = ParentEmail;
     }
 
     // Getters and setters
@@ -69,6 +72,13 @@ public class Users implements Serializable {
     }
     public void setEmail(String Email) {
         this.Email = Email;
+    }
+
+    public String getParentEmail() {
+        return ParentEmail;
+    }
+    public void setParentEmail(String ParentEmail) {
+        this.ParentEmail = ParentEmail;
     }
 
     public String getPassword() {
