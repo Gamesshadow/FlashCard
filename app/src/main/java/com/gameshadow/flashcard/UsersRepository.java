@@ -4,8 +4,6 @@ import android.content.Context;
 
 import androidx.lifecycle.LiveData;
 
-import com.gameshadow.flashcard.NoteDatabase;
-
 import java.util.List;
 
 
@@ -23,10 +21,11 @@ public class UserRepository {
         return allUsers;
     }
 
-    public static void addUser(Users user) {
-        NoteDatabase.getDatabase().execute(() -> {
+    public static Context addUser(Users user) {
+        NoteDatabase database = NoteDatabase.getDatabase(addUser(user)); {
             userDao.insert(user);
-        });
+        };
+        return null;
     }
 
     public LiveData<Users> getUserByEmail(String email) {

@@ -32,7 +32,7 @@ public class Users implements Serializable {
     public Users() {
     }
     // Constructor
-    public Users(@NonNull String dateAdded, String FirstName, String Lastname, String Email, String ParentEmail, String Password,boolean isAdmin) {
+    public Users(String dateAdded, String FirstName, String Lastname, String Email, String ParentEmail, String Password,boolean isAdmin) {
         this.dateAdded = dateAdded;
         this.FirstName = FirstName;
         this.LastName = LastName;

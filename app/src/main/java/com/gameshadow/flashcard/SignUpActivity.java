@@ -34,6 +34,7 @@ public class SignUpActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Set up strings to capture data
+                String dateAdded = Note.getDateAdded();
                 String FName = FirstName.getText().toString();
                 String LName = LastName.getText().toString();
                 String Email = etEmail.getText().toString();
@@ -55,12 +56,12 @@ public class SignUpActivity extends AppCompatActivity {
 
 
                 // Create user object
-                Users newUser = new Users(FName, LName, Email, PEmail, Password, IsAdmin);
+                Users newUser = new Users(null, FName, LName, Email, PEmail, Password, (Boolean) IsAdmin);
                 UserRepository.addUser(newUser);
 
                 // Save to database
                 Users db = Users.getInstance(getApplicationContext());
-                boolean success = db.addUser(newUser);
+                boolean success = db.UsersRepository.addUser(newUser);
 
 
                 if(success) {
