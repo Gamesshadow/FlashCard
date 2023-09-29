@@ -107,6 +107,8 @@ public class NotesActivity extends AppCompatActivity {
         Button btnRight = findViewById(R.id.btnRight);
          viewPager2 = findViewById(R.id.viewPager);
          viewPager2.setUserInputEnabled(false);
+
+         //Click Listeners
         btnLeft.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -121,6 +123,7 @@ public class NotesActivity extends AppCompatActivity {
         });
         setRecyclerView();
         observeNotes();
+
         floating_action_button.setOnClickListener(v -> {
             Intent intent = new Intent(NotesActivity.this, AddNoteActivity.class);
             intent.putExtra("from","new");
@@ -204,11 +207,6 @@ public class NotesActivity extends AppCompatActivity {
                     }
                 });
             });
-
         });
-
-
     }
-
-
 }

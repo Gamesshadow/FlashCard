@@ -67,7 +67,7 @@ public class Users implements Serializable {
         this.LastName = LastName;
     }
 
-    public String getEmail() {
+    public String getEmail(String email) {
         return Email;
     }
     public void setEmail(String Email) {

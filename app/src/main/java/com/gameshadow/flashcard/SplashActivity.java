@@ -36,7 +36,7 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void run() {
                 /* Create an Intent that will start the Note-Activity. */
-                Intent mainIntent = new Intent(SplashActivity.this, NotesActivity.class);
+                Intent mainIntent = new Intent(SplashActivity.this, LoginActivity.class);
                 startActivity(mainIntent);
                 finish();
             }
