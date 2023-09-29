@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -19,20 +17,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/note_delete"
-            android:layout_width="34dp"
-            android:layout_height="34dp"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
-            android:elevation="1dp"
-            android:visibility="gone"
-            android:src="@drawable/ic_delete"
-            app:tint="@color/colorPrimaryDark" />
-
         <TextView
             android:id="@+id/note_question"
             android:layout_width="match_parent"
@@ -42,11 +26,10 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
-            android:layout_toStartOf="@+id/note_delete"
             android:background="@drawable/note_bg_border"
             android:gravity="center"
             android:padding="10dp"
-            android:text="Question Here"
+            android:text="@string/question_here"
             android:textColor="@android:color/white" />
 
         <TextView
@@ -60,11 +43,10 @@
             android:layout_marginEnd="10dp"
             android:layout_above="@+id/note_date"
             android:layout_marginBottom="10dp"
-            android:layout_toStartOf="@+id/note_delete"
             android:background="@drawable/note_bg_border"
             android:gravity="center"
             android:padding="10dp"
-            android:text="Text Here"
+            android:text="@string/text_here"
             android:textColor="@android:color/white" />
 
         <TextView

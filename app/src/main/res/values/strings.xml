@@ -5,4 +5,9 @@
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="sign_in">Sign In</string>
+    <string name="create">Create Your Account</string>
+    <string name="last_name">Last Name</string>
+    <string name="first_name">First Name</string>
+    <string name="question_here">Question Here</string>
+    <string name="text_here">Text Here</string>
 </resources>
