@@ -8,6 +8,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
+import androidx.lifecycle.LiveData;
+
 public class LoginActivity extends AppCompatActivity {
 
     EditText etEmail, etPassword;
@@ -23,8 +26,8 @@ public class LoginActivity extends AppCompatActivity {
         // Initialize views
         etEmail = findViewById(R.id.editTextEmailAddress);
         etPassword = findViewById(R.id.editTextPassword);
-        Button SignIn = findViewById(R.id.sign_in);
-        Button SignUp = findViewById(R.id.sign_up);
+        AppCompatButton SignIn = findViewById(R.id.sign_in);
+        AppCompatButton SignUp = findViewById(R.id.sign_up);
 
         SignIn.setOnClickListener(new View.OnClickListener() {
 
@@ -41,22 +44,23 @@ public class LoginActivity extends AppCompatActivity {
                 }
 
                 // Authenticate with database
-                //Users db = Users.getDatabase(this);
-                Users newuser = new Users().getEmail();
+                LiveData<Users> users = new UserRepository(LoginActivity.this).getUserByEmail(email, password);
+                users.observe(LoginActivity.this, foundUser -> {
 
-                if(newuser == null) {
-                    Toast.makeText(LoginActivity.this, "Invalid email", Toast.LENGTH_SHORT).show();
-                }
-                else if(!newuser.getPassword().equals(password)) {
-                    Toast.makeText(LoginActivity.this, "Incorrect password", Toast.LENGTH_SHORT).show();
-                }
-                else {
-                    // Login successful
-                    // Launch main activity
-                    Intent intent = new Intent(LoginActivity.this, NotesActivity.class);
-                    startActivity(intent);
-                    finish();
-                }
+                    if(foundUser == null) {
+                        Toast.makeText(LoginActivity.this, "Invalid email", Toast.LENGTH_SHORT).show();
+                    }
+                    else if(!foundUser.getPassword().equals(password)) {
+                        Toast.makeText(LoginActivity.this, "Incorrect password", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        // Login successful
+                        // Launch main activity
+                        Intent intent = new Intent(LoginActivity.this, NotesActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                });
             }
         });
         SignUp.setOnClickListener(new View.OnClickListener(){

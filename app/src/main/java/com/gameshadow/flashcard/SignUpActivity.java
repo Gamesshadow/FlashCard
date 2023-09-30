@@ -34,13 +34,13 @@ public class SignUpActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Set up strings to capture data
-                String dateAdded = Note.getDateAdded();
+                String dateAdded = ""; //Note.getDateAdded();
                 String FName = FirstName.getText().toString();
                 String LName = LastName.getText().toString();
                 String Email = etEmail.getText().toString();
                 String PEmail = ParentEmail.getText().toString();
                 String Password = etPassword.getText().toString();
-                Boolean IsAdmin = false;
+                boolean IsAdmin = false;
 
                 //Validate data - No fields blank except PEmail
                 if(FName.isEmpty() || LName.isEmpty() || Email.isEmpty() || Password.isEmpty()) {
@@ -48,26 +48,15 @@ public class SignUpActivity extends AppCompatActivity {
                     return;
                 }
                 //If PEmail == Email, = Parent
-                if (PEmail == Email){ IsAdmin = true;}
-                //if PEmail == null, = Parent
-                if (PEmail == null){IsAdmin = true;}
-                //If PEmail != Email, = Student
-                if (PEmail != Email){IsAdmin = false;}
-
+                if (PEmail == null || PEmail == Email){ IsAdmin = true;}
+                //else IsAdmin == false
 
                 // Create user object
-                Users newUser = new Users(dateAdded, FName, LName, Email, PEmail, Password, (Boolean) IsAdmin);
-                UserRepository.addUser(newUser);
-
+                Users newUser = new Users(dateAdded, FName, LName, Email, PEmail, Password, IsAdmin);
                 // Save to database
-                //Users db = Users.getInstance(getApplicationContext());
-                UserRepository.addUser(newUser);
-                boolean success = true;
+                new UserRepository(getBaseContext()).addUser(getBaseContext(), newUser);
 
-
-                if(success) {
-                    Toast.makeText(SignUpActivity.this, "Account Created Successfully!", Toast.LENGTH_SHORT).show();}
-
+                Toast.makeText(SignUpActivity.this, "Account Created Successfully!", Toast.LENGTH_SHORT).show();
 
                 // Launch Notes activity when done
                 Intent intent = new Intent(SignUpActivity.this, NotesActivity.class);

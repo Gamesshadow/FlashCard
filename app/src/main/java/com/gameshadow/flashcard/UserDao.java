@@ -13,8 +13,8 @@ public interface UserDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     void insert(Users user);
 
-    @Query("SELECT * FROM users WHERE Email = :email")
-    LiveData<Users> getUserByEmail(String email);
+    @Query("SELECT * FROM users WHERE Email = :email and Password = :password")
+    LiveData<Users> getUserByEmail(String email, String password);
 
     @Query("SELECT * FROM users")
     LiveData<List<Users>> getAllUsers();

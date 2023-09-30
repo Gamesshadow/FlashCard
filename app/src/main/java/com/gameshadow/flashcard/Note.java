@@ -9,8 +9,6 @@ import java.io.Serializable;
 
 @Entity(tableName = "notes")
 public class Note implements Serializable {
-
-
     @PrimaryKey
     @NonNull
     @ColumnInfo(name = "dateAdded")

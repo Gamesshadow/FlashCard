@@ -15,7 +15,7 @@ import androidx.room.TypeConverters;
 public abstract class NoteDatabase extends RoomDatabase {
 
     public abstract NoteDao noteDao();
-
+    public abstract UserDao userDao();
     private static volatile NoteDatabase INSTANCE;
 
     public static NoteDatabase getDatabase(Context context) {
