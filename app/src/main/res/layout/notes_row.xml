@@ -17,6 +17,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
+        <ImageView
+            android:id="@+id/note_delete"
+            android:layout_width="36dp"
+            android:layout_height="39dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/note_bg_border"
+            android:gravity="center"
+            android:padding="10dp" />
         <TextView
             android:id="@+id/note_question"
             android:layout_width="match_parent"

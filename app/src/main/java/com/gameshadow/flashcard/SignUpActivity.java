@@ -56,7 +56,7 @@ public class SignUpActivity extends AppCompatActivity {
 
 
                 // Create user object
-                Users newUser = new Users(null, FName, LName, Email, PEmail, Password, (Boolean) IsAdmin);
+                Users newUser = new Users(dateAdded, FName, LName, Email, PEmail, Password, (Boolean) IsAdmin);
                 UserRepository.addUser(newUser);
 
                 // Save to database

@@ -12,8 +12,9 @@ public class Note implements Serializable {
 
 
     @PrimaryKey
+    @NonNull
     @ColumnInfo(name = "dateAdded")
-    private static String dateAdded;
+    private String dateAdded;
 
     @ColumnInfo(name = "noteQuestion")
     private String noteQuestion;
@@ -36,7 +37,7 @@ public class Note implements Serializable {
 
     // Getters and setters
     @NonNull
-    public static String getDateAdded() {
+    public String getDateAdded() {
         return dateAdded;
     }
 
