@@ -60,8 +60,9 @@ public class SignUpActivity extends AppCompatActivity {
                 UserRepository.addUser(newUser);
 
                 // Save to database
-                Users db = Users.getInstance(getApplicationContext());
-                boolean success = db.UsersRepository.addUser(newUser);
+                //Users db = Users.getInstance(getApplicationContext());
+                UserRepository.addUser(newUser);
+                boolean success = true;
 
 
                 if(success) {

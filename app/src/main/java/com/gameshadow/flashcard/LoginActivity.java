@@ -30,7 +30,6 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-
                 // Get input
                 String email = etEmail.getText().toString();
                 String password = etPassword.getText().toString();
@@ -53,7 +52,6 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 else {
                     // Login successful
-
                     // Launch main activity
                     Intent intent = new Intent(LoginActivity.this, NotesActivity.class);
                     startActivity(intent);
@@ -62,7 +60,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
         SignUp.setOnClickListener(new View.OnClickListener(){
-
             @Override
             public void onClick(View v) {
                 // Launch Sign Up activity
@@ -72,5 +69,4 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
-
 }
