@@ -9,15 +9,15 @@
 
     <TextView
         android:id="@+id/tvCount"
-        android:textSize="16sp"
-        android:textColor="@color/colorPrimaryDark"
-        android:background="@color/Black"
-        android:padding="10dp"
-        android:textStyle="bold"
-        android:text="0/0"
-        android:gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:background="@color/Black"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="0/0"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="16sp"
+        android:textStyle="bold" />
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewPager"

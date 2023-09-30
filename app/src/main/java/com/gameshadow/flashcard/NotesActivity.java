@@ -2,11 +2,14 @@ package com.gameshadow.flashcard;
 
 
 import android.app.Activity;
+import android.content.ClipData;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -105,6 +108,7 @@ public class NotesActivity extends AppCompatActivity {
         tvCount = findViewById(R.id.tvCount);
         Button btnLeft = findViewById(R.id.btnLeft);
         Button btnRight = findViewById(R.id.btnRight);
+
          viewPager2 = findViewById(R.id.viewPager);
          viewPager2.setUserInputEnabled(false);
 
@@ -151,11 +155,15 @@ public class NotesActivity extends AppCompatActivity {
             }
         });
     }
-
+    //Menu
+    /*
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_notes, menu);
+        return true;
+    }
+    */
     private void setRecyclerView() {
-
-//        RecyclerView notesRecyclerView = findViewById(R.id.notes_recyclerview);
-//        notesRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL));
         adapter = new NotesRVAdapter(new RecyclerClickListener() {
             @Override
             public void onItemRemoveClick(int position) {
