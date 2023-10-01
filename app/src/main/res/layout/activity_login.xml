@@ -70,7 +70,6 @@
         android:layout_centerVertical="true"
         android:layout_marginStart="34dp"
         android:layout_marginEnd="25dp"
-        android:layout_marginBottom="203dp"
         android:background="@drawable/note_bg_layout"
         android:backgroundTint="@color/colorPrimaryDark"
         android:gravity="center"
@@ -83,7 +82,9 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/sign_up"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.762" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/sign_up"
@@ -93,7 +94,6 @@
         android:layout_centerVertical="true"
         android:layout_marginStart="25dp"
         android:layout_marginEnd="34dp"
-        android:layout_marginBottom="203dp"
         android:background="@drawable/note_bg_layout"
         android:backgroundTint="@color/colorPrimaryDark"
         android:gravity="center"
@@ -106,6 +106,8 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/sign_in" />
+        app:layout_constraintStart_toEndOf="@+id/sign_in"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.762" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
