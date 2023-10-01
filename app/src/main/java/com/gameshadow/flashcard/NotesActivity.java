@@ -174,7 +174,7 @@ public class NotesActivity extends AppCompatActivity {
                 newNoteResultLauncher.launch(intent);
                 return true;
             case R.id.logout_menu:
-                Intent intent2 = new Intent(NotesActivity.this, LoginActivity.class);
+                Intent intent2 = new Intent(NotesActivity.this, GoodbyeSplash.class);
                 intent2.putExtra("from","new");
                 newNoteResultLauncher.launch(intent2);
                 return true;
