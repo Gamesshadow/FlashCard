@@ -1,5 +1,4 @@
 package com.gameshadow.flashcard;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -8,8 +7,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-public class SignUpActivity extends AppCompatActivity {
 
+public class SignUpActivity extends AppCompatActivity {
     EditText FirstName, LastName, ParentEmail, etEmail, etPassword;
     Button SignUp;
 

@@ -1,5 +1,4 @@
 package com.gameshadow.flashcard;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -12,13 +11,10 @@ import androidx.appcompat.widget.AppCompatButton;
 import androidx.lifecycle.LiveData;
 
 public class LoginActivity extends AppCompatActivity {
-
     EditText etEmail, etPassword;
     Button SignIn, SignUp;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         // Set up views
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
@@ -42,7 +38,6 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(LoginActivity.this, "Please enter email and password", Toast.LENGTH_SHORT).show();
                     return;
                 }
-
                 // Authenticate with database
                 LiveData<Users> users = new UserRepository(LoginActivity.this).getUserByEmail(email, password);
                 users.observe(LoginActivity.this, foundUser -> {

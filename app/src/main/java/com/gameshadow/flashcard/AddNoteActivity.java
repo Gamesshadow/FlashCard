@@ -1,5 +1,4 @@
 package com.gameshadow.flashcard;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
@@ -28,10 +27,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-
 @SuppressLint("RestrictedApi")
 public class AddNoteActivity extends AppCompatActivity {
-
     private RelativeLayout addNoteBackground;
     private View viewColor;
     private Button selectColor;
@@ -41,8 +38,6 @@ public class AddNoteActivity extends AppCompatActivity {
     ExecutorService executor = Executors.newSingleThreadExecutor();
     Handler handler = new Handler(Looper.getMainLooper());
     private DeleteClickListener deleteClickListener;
-
-
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -98,7 +93,6 @@ public class AddNoteActivity extends AppCompatActivity {
                     color = ((ColorDrawable) background).getColor();
                 data.putExtra("noteBG", color);
 
-
                 setResult(Activity.RESULT_OK, data);
                 onBackPressed();
             }
@@ -112,7 +106,6 @@ public class AddNoteActivity extends AppCompatActivity {
         add_note_delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent data = new Intent();
                 data.putExtra("note_date_added", noteDateAdded);
                 data.putExtra("note_text", addNoteText.getText().toString().trim());
@@ -130,8 +123,6 @@ public class AddNoteActivity extends AppCompatActivity {
             }
         });
     }
-
-
     @Override
     public void onBackPressed() {
         finish();
@@ -157,11 +148,9 @@ public class AddNoteActivity extends AppCompatActivity {
                 textView.setText(colorNames[position]);
                 textView.setBackgroundResource(colorToUse);
 
-
                 return textView;
             }
         };
-
         builder.setAdapter(colorAdapter, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {

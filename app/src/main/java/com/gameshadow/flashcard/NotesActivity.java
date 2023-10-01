@@ -1,6 +1,4 @@
 package com.gameshadow.flashcard;
-
-
 import android.app.Activity;
 import android.content.ClipData;
 import android.content.Intent;
@@ -33,9 +31,7 @@ import java.util.Locale;
 import java.util.Objects;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-
 public class NotesActivity extends AppCompatActivity {
-
     private NotesRVAdapter adapter;
     private NoteDao noteDatabase;
     private TextView noRecordFound,tvCount;
@@ -61,7 +57,6 @@ public class NotesActivity extends AppCompatActivity {
                     }
                 }
             });
-
     private final ActivityResultLauncher<Intent> editNoteResultLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
             new ActivityResultCallback<ActivityResult>() {
@@ -71,8 +66,6 @@ public class NotesActivity extends AppCompatActivity {
                         String noteDateAdded = result.getData().getStringExtra("note_date_added");
                         String noteText = result.getData().getStringExtra("note_text");
                         String note_question = result.getData().getStringExtra("note_question");
-
-
 
                         String from = result.getData().getStringExtra("from");
                         if (Objects.equals(from, "edit")) {
@@ -84,7 +77,6 @@ public class NotesActivity extends AppCompatActivity {
                             });
                         }
                         else {
-
                             Note data = (Note) result.getData().getSerializableExtra("data");
                             List<Note> notesList = new ArrayList<>(adapter.getCurrentList());
 
@@ -98,7 +90,6 @@ public class NotesActivity extends AppCompatActivity {
                     }
                 }
             });
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -1,5 +1,4 @@
 package com.gameshadow.flashcard;
-
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
@@ -9,13 +8,10 @@ import java.io.Serializable;
 
 @Entity(tableName = "users")
 public class Users implements Serializable {
-
-
     @PrimaryKey
     @NonNull
     @ColumnInfo(name = "dateAdded")
     private String dateAdded;
-
     @ColumnInfo(name = "FirstName")
     private String FirstName;
     @ColumnInfo(name = "LastName")
@@ -42,7 +38,6 @@ public class Users implements Serializable {
         this.IsAdmin = isAdmin;
         this.ParentEmail = ParentEmail;
     }
-
     // Getters and setters
     @NonNull
     public String getDateAdded() {
@@ -95,5 +90,4 @@ public class Users implements Serializable {
     public void setIsAdmin(boolean isAdmin) {
         this.IsAdmin = isAdmin;
     }
-
 }

@@ -1,5 +1,4 @@
 package com.gameshadow.flashcard;
-
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
@@ -66,6 +65,4 @@ public class Note implements Serializable {
     public void setNoteBG(int noteBG) {
         this.noteBG = noteBG;
     }
-
-
 }

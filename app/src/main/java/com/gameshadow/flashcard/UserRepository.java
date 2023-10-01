@@ -1,5 +1,4 @@
 package com.gameshadow.flashcard;
-
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
@@ -10,7 +9,6 @@ import androidx.lifecycle.LiveData;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-
 
 public class UserRepository {
     private static UserDao userDao;
@@ -40,6 +38,4 @@ public class UserRepository {
     public LiveData<Users> getUserByEmail(String email, String password) {
         return userDao.getUserByEmail(email, password);
     }
-
 }
-

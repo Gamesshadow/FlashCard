@@ -1,5 +1,4 @@
 package com.gameshadow.flashcard;
-
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;

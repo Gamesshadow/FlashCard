@@ -1,6 +1,4 @@
 package com.gameshadow.flashcard;
-
-
 import android.content.Context;
 import androidx.room.Database;
 import androidx.room.Room;
@@ -28,7 +26,6 @@ public abstract class NoteDatabase extends RoomDatabase {
         }
         return INSTANCE;
     }
-
     private static NoteDatabase buildDatabase(Context context) {
         return Room.databaseBuilder(
                         context.getApplicationContext(),
