@@ -10,6 +10,7 @@ import android.os.Looper;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -156,13 +157,32 @@ public class NotesActivity extends AppCompatActivity {
         });
     }
     //Menu
-    /*
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_notes, menu);
         return true;
     }
-    */
+    //Menu Options - https://developer.android.com/develop/ui/views/components/menus#java
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.add_note_menu:
+                Intent intent = new Intent(NotesActivity.this, AddNoteActivity.class);
+                intent.putExtra("from","new");
+                newNoteResultLauncher.launch(intent);
+                return true;
+            case R.id.logout_menu:
+                Intent intent2 = new Intent(NotesActivity.this, LoginActivity.class);
+                intent2.putExtra("from","new");
+                newNoteResultLauncher.launch(intent2);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
     private void setRecyclerView() {
         adapter = new NotesRVAdapter(new RecyclerClickListener() {
             @Override
