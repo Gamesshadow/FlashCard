@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".NotesActivity">
+
+    <TextView
+        android:id="@+id/tvCount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/Black"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="@string/count_start"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager"
+        android:layout_below="@+id/tvCount"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/floating_action_button"/>
+
+    <Button
+        android:id="@+id/btnLeft"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="20dp"
+        android:textSize="12sp"
+        android:layout_marginEnd="20dp"
+        android:textAllCaps="false"
+        android:layout_marginBottom="30dp"
+        android:text="@string/previous_card" />
+
+    <Button
+        android:id="@+id/btnRight"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:text="@string/next_card"
+        android:textSize="12sp"
+        android:textAllCaps="false"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="30dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floating_action_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp"
+        android:layout_centerHorizontal="true"
+        android:theme="@style/FloatingAccentButtonOverlay"
+        app:srcCompat="@drawable/ic_add"
+        android:contentDescription="@string/add_card"/>
+
+    <TextView
+        android:id="@+id/noRecordFound"
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:textColor="@color/Black"
+        android:visibility="gone"
+        android:textSize="16sp"
+        android:paddingHorizontal="30dp"
+        android:textStyle="bold"
+        android:text="@string/no_cards"
+        android:layout_height="wrap_content"/>
+</RelativeLayout>

@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Flash Card</string>
     <string name="sign_up">Sign Up</string>
-    <string name="welcome">Welcome</string>
+    <string name="welcome">Welcome!</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="sign_in">Sign In</string>
@@ -11,4 +11,9 @@
     <string name="question_here">Question Here</string>
     <string name="text_here">Text Here</string>
     <string name="parent_email">Parent Email</string>
+    <string name="next_card">Next Card</string>
+    <string name="add_card">Add Card</string>
+    <string name="no_cards">No cards found! Please click on the Plus button to add new cards</string>
+    <string name="previous_card">Previous Card</string>
+    <string name="count_start">0/0</string>
 </resources>
