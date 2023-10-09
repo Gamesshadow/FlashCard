@@ -101,8 +101,8 @@ public class NotesActivity extends AppCompatActivity {
         Button btnLeft = findViewById(R.id.btnLeft);
         Button btnRight = findViewById(R.id.btnRight);
 
-         viewPager2 = findViewById(R.id.viewPager);
-         viewPager2.setUserInputEnabled(false);
+        viewPager2 = findViewById(R.id.viewPager);
+        viewPager2.setUserInputEnabled(false);
 
          //Click Listeners
         btnLeft.setOnClickListener(new View.OnClickListener() {
@@ -125,7 +125,6 @@ public class NotesActivity extends AppCompatActivity {
             intent.putExtra("from","new");
             newNoteResultLauncher.launch(intent);
         });
-
 
         viewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
             @Override

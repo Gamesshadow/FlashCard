@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class SignUpActivity extends AppCompatActivity {
     EditText FirstName, LastName, ParentEmail, etEmail, etPassword;
     Button SignUp;
+    TextView close_Button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,9 +27,17 @@ public class SignUpActivity extends AppCompatActivity {
         etEmail = findViewById(R.id.editTextEmailAddress);
         etPassword = findViewById(R.id.editTextPassword);
         ParentEmail = findViewById(R.id.editTextParentEmailAddress);
+        close_Button = findViewById(R.id.close_Button);
 
-        Button SignUp = findViewById(R.id.sign_up);
+        SignUp = findViewById(R.id.sign_up);
 
+
+        close_Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         SignUp.setOnClickListener(new View.OnClickListener() {
 
             @Override
