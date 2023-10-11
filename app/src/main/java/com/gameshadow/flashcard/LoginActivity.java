@@ -51,7 +51,7 @@ public class LoginActivity extends AppCompatActivity {
                     else {
                         // Login successful
                         // Launch main activity
-                        Intent intent = new Intent(LoginActivity.this, NotesActivity.class);
+                        Intent intent = new Intent(LoginActivity.this, StudentNotes.class);
                         startActivity(intent);
                         finish();
                     }

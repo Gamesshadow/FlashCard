@@ -35,7 +35,8 @@ public class SignUpActivity extends AppCompatActivity {
         close_Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
+                startActivity(intent);
             }
         });
         SignUp.setOnClickListener(new View.OnClickListener() {
@@ -67,9 +68,11 @@ public class SignUpActivity extends AppCompatActivity {
 
                 Toast.makeText(SignUpActivity.this, "Account Created Successfully!", Toast.LENGTH_SHORT).show();
 
-                // Launch Notes activity when done
-                Intent intent = new Intent(SignUpActivity.this, NotesActivity.class);
-                startActivity(intent);
+                // Launch activity when done
+                Intent adminIntent = new Intent(SignUpActivity.this, ParentNotes.class);
+                Intent studentIntent = new Intent(SignUpActivity.this, StudentNotes.class);
+                if (IsAdmin == true){startActivity(adminIntent);}
+                else {startActivity(studentIntent);}
                 finish();
             }
         });

@@ -72,7 +72,6 @@ public class NotesRVAdapter extends ListAdapter<Note, NotesRVAdapter.NoteHolder>
 //        Log.d("tag====>",currentItem.getNoteBG()+"");
 //        Log.d("tag====>",currentItem.getNoteText());
 //        Log.d("tag====>",currentItem.getDateAdded().getDate()+"");
-//        Log.d("tag====>","=================================================");
         TextView noteText = holder.itemView.findViewById(R.id.note_text);
         TextView noteDate = holder.itemView.findViewById(R.id.note_date);
         TextView note_question = holder.itemView.findViewById(R.id.note_question);

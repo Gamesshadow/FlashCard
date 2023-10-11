@@ -1,6 +1,5 @@
 package com.gameshadow.flashcard;
 import android.app.Activity;
-import android.content.ClipData;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -31,7 +30,7 @@ import java.util.Locale;
 import java.util.Objects;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-public class NotesActivity extends AppCompatActivity {
+public class StudentNotes extends AppCompatActivity {
     private NotesRVAdapter adapter;
     private NoteDao noteDatabase;
     private TextView noRecordFound,tvCount;
@@ -121,7 +120,7 @@ public class NotesActivity extends AppCompatActivity {
         observeNotes();
 
         floating_action_button.setOnClickListener(v -> {
-            Intent intent = new Intent(NotesActivity.this, AddNoteActivity.class);
+            Intent intent = new Intent(StudentNotes.this, AddNoteActivity.class);
             intent.putExtra("from","new");
             newNoteResultLauncher.launch(intent);
         });
@@ -159,12 +158,12 @@ public class NotesActivity extends AppCompatActivity {
         // Handle item selection
         switch (item.getItemId()) {
             case R.id.add_note_menu:
-                Intent intent = new Intent(NotesActivity.this, AddNoteActivity.class);
+                Intent intent = new Intent(StudentNotes.this, AddNoteActivity.class);
                 intent.putExtra("from","new");
                 newNoteResultLauncher.launch(intent);
                 return true;
             case R.id.logout_menu:
-                Intent intent2 = new Intent(NotesActivity.this, GoodbyeSplash.class);
+                Intent intent2 = new Intent(StudentNotes.this, GoodbyeSplash.class);
                 intent2.putExtra("from","new");
                 newNoteResultLauncher.launch(intent2);
                 return true;
@@ -194,7 +193,7 @@ public class NotesActivity extends AppCompatActivity {
 
             @Override
             public void onItemLongClick(int position) {
-                Intent intent = new Intent(NotesActivity.this, AddNoteActivity.class);
+                Intent intent = new Intent(StudentNotes.this, AddNoteActivity.class);
                 List<Note> notesList = new ArrayList<>(adapter.getCurrentList());
                 intent.putExtra("data",notesList.get(position));
                 intent.putExtra("from","edit");

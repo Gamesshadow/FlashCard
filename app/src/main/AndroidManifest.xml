@@ -20,7 +20,11 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".NotesActivity"
+            android:name=".StudentNotes"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ParentNotes"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity

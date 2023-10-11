@@ -41,10 +41,7 @@ public class ParentNotes extends AppCompatActivity {
     ExecutorService executor = Executors.newSingleThreadExecutor();
     Handler handler = new Handler(Looper.getMainLooper());
 
-    //This would be referencing the same Note Dao but under the username of email. Having looked at this, we need to review the initial Note Dao since we are splitting parent and student users.
-
-
-    //NotesActivity. Most of this will carry over. Menu, MenuOptions, possibly the floating action button.
+    //StudentNotes. Most of this will carry over. Menu, MenuOptions, possibly the floating action button.
     //Testing is needed, but I would believe all that is needed here is the association. the creation is correct, adding does the thing, however theres no correlation
 
     private final ActivityResultLauncher<Intent> newNoteResultLauncher = registerForActivityResult(
