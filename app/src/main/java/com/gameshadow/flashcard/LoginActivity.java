@@ -32,6 +32,8 @@ public class LoginActivity extends AppCompatActivity {
                 // Get input
                 String email = etEmail.getText().toString();
                 String password = etPassword.getText().toString();
+                Intent parentIntent = new Intent(LoginActivity.this, ParentNotes.class);
+                Intent studentIntent = new Intent(LoginActivity.this, StudentNotes.class);
 
                 // Validate input
                 if(email.isEmpty() || password.isEmpty()) {
@@ -51,9 +53,8 @@ public class LoginActivity extends AppCompatActivity {
                     else {
                         // Login successful
                         // Launch main activity
-                        Intent intent = new Intent(LoginActivity.this, StudentNotes.class);
-                        startActivity(intent);
-                        finish();
+                        if (Users.getIsAdmin()){startActivity(parentIntent);}
+                        else {startActivity(studentIntent);}
                     }
                 });
             }

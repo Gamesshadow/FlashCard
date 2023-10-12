@@ -34,6 +34,7 @@ public class AddNoteActivity extends AppCompatActivity {
     private Button selectColor;
     private LinearLayout addNoteWindowBg;
     private TextView add_note_delete;
+    private TextView close_Button;
     private NoteDao noteDatabase;
     ExecutorService executor = Executors.newSingleThreadExecutor();
     Handler handler = new Handler(Looper.getMainLooper());
@@ -71,6 +72,18 @@ public class AddNoteActivity extends AppCompatActivity {
         add_note_question.setText(note_question != null ? note_question : "");
 
         Button addNoteButton = findViewById(R.id.add_note_button);
+        close_Button = findViewById(R.id.close_Button);
+        Intent parentintent = new Intent(AddNoteActivity.this, ParentNotes.class);
+        Intent studentIntent = new Intent(AddNoteActivity.this, StudentNotes.class);
+        close_Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (Users.getIsAdmin())
+                {startActivity(parentintent);}
+                else {startActivity(studentIntent);}
+
+            }
+        });
         addNoteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

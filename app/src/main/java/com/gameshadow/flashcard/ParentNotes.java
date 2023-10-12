@@ -18,6 +18,7 @@ import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.gameshadow.flashcard.adapter.NotesRVAdapter;
@@ -99,7 +100,7 @@ public class ParentNotes extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_notes);
+        setContentView(R.layout.activity_student);
         noteDatabase = NoteDatabase.getDatabase(this).noteDao();
         FloatingActionButton floating_action_button = findViewById(R.id.floating_action_button);
         noRecordFound = findViewById(R.id.noRecordFound);
@@ -109,6 +110,10 @@ public class ParentNotes extends AppCompatActivity {
 
         viewPager2 = findViewById(R.id.viewPager);
         viewPager2.setUserInputEnabled(false);
+
+        //Toolbar for Menu
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         //Click Listeners
         btnLeft.setOnClickListener(new View.OnClickListener() {
