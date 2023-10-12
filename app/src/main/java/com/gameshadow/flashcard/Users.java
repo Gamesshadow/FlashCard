@@ -23,7 +23,7 @@ public class Users implements Serializable {
     @ColumnInfo(name = "Password")
     private String Password;
     @ColumnInfo(name = "isAdmin")
-    private boolean IsAdmin;
+    private static boolean IsAdmin;
 
     // Default constructor
     public Users() {
@@ -84,7 +84,7 @@ public class Users implements Serializable {
         this.Password = Password;
     }
 
-    public boolean getIsAdmin() {
+    public static boolean getIsAdmin() {
         return IsAdmin;
     }
     public void setIsAdmin(boolean isAdmin) {

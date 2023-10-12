@@ -64,14 +64,15 @@ public class SignUpActivity extends AppCompatActivity {
                 // Create user object
                 Users newUser = new Users(dateAdded, FName, LName, Email, PEmail, Password, IsAdmin);
                 // Save to database
-                new UserRepository(getBaseContext()).addUser(getBaseContext(), newUser);
+                new UserRepository(getBaseContext());
+                UserRepository.addUser(getBaseContext(), newUser);
 
                 Toast.makeText(SignUpActivity.this, "Account Created Successfully!", Toast.LENGTH_SHORT).show();
 
                 // Launch activity when done
                 Intent adminIntent = new Intent(SignUpActivity.this, ParentNotes.class);
                 Intent studentIntent = new Intent(SignUpActivity.this, StudentNotes.class);
-                if (IsAdmin == true){startActivity(adminIntent);}
+                if (IsAdmin){startActivity(adminIntent);}
                 else {startActivity(studentIntent);}
                 finish();
             }

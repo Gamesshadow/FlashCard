@@ -98,7 +98,11 @@ public class NotesRVAdapter extends ListAdapter<Note, NotesRVAdapter.NoteHolder>
 
         @Override
         public boolean areContentsTheSame(Note oldItem, Note newItem) {
-            return oldItem.equals(newItem);
+            // Compare the relevant properties of the old and new items
+            //Note to self: comparing items isnt enough. must be property specific
+            return oldItem.getNoteQuestion().equals(newItem.getNoteQuestion()) &&
+                    oldItem.getNoteText().equals(newItem.getNoteText()) &&
+                    oldItem.getDateAdded().equals(newItem.getDateAdded());
         }
     }
 }

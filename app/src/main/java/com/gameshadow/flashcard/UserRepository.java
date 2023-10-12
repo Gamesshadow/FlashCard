@@ -25,15 +25,13 @@ public class UserRepository {
         return allUsers;
     }
 
-    public static Context addUser(Context context, Users user) {
+    public static void addUser(Context context, Users user) {
         NoteDatabase database = NoteDatabase.getDatabase(context); {
             executor.execute(() -> {
                 //Background work here
                 userDao.insert(user);
             });
-
-        };
-        return null;
+        }
     }
     public LiveData<Users> getUserByEmail(String email, String password) {
         return userDao.getUserByEmail(email, password);
