@@ -36,14 +36,12 @@ import java.util.concurrent.Executors;
 public class ParentNotes extends AppCompatActivity {
 
     private NotesRVAdapter adapter;
-    private NoteDao noteDatabase;
+    private NoteDao ParentDatabase;
+    private NoteDao notedatabase;
     private TextView noRecordFound,tvCount;
     private ViewPager2 viewPager2;
     ExecutorService executor = Executors.newSingleThreadExecutor();
     Handler handler = new Handler(Looper.getMainLooper());
-
-    //StudentNotes. Most of this will carry over. Menu, MenuOptions, possibly the floating action button.
-    //Testing is needed, but I would believe all that is needed here is the association. the creation is correct, adding does the thing, however theres no correlation
 
     private final ActivityResultLauncher<Intent> newNoteResultLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
@@ -59,7 +57,8 @@ public class ParentNotes extends AppCompatActivity {
                         Note newNote = new Note(noteDateAdded, noteText != null ? noteText : "", noteBG,note_question);
                         executor.execute(() -> {
                             //Background work here
-                            noteDatabase.addNote(newNote);
+                            ParentDatabase.addNote(newNote);
+                            notedatabase.addNote(newNote);
                         });
                     }
                 }
@@ -80,7 +79,8 @@ public class ParentNotes extends AppCompatActivity {
                             Note editedNote = new Note(noteDateAdded, noteText != null ? noteText : "", noteBG, note_question);
                             executor.execute(() -> {
                                 //Background work here
-                                noteDatabase.updateNote(editedNote);
+                                ParentDatabase.updateNote(editedNote);
+                                notedatabase.updateNote(editedNote);
                             });
                         }
                         else {
@@ -91,7 +91,8 @@ public class ParentNotes extends AppCompatActivity {
                             adapter.submitList(notesList);
                             executor.execute(() -> {
                                 //Background work here
-                                noteDatabase.deleteNote(data);
+                                ParentDatabase.deleteNote(data);
+                                notedatabase.deleteNote(data);
                             });
                         }
                     }
@@ -101,7 +102,7 @@ public class ParentNotes extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student);
-        noteDatabase = NoteDatabase.getDatabase(this).noteDao();
+        ParentDatabase = NoteDatabase.getDatabase(this).noteDao();
         FloatingActionButton floating_action_button = findViewById(R.id.floating_action_button);
         noRecordFound = findViewById(R.id.noRecordFound);
         tvCount = findViewById(R.id.tvCount);
@@ -115,19 +116,12 @@ public class ParentNotes extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        //Student database?
+        notedatabase = (NoteDao) notedatabase.getNotes();
+
         //Click Listeners
-        btnLeft.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                viewPager2.setCurrentItem(viewPager2.getCurrentItem() - 1, true);
-            }
-        });
-        btnRight.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                viewPager2.setCurrentItem(viewPager2.getCurrentItem() + 1, true);
-            }
-        });
+        btnLeft.setOnClickListener(v -> viewPager2.setCurrentItem(viewPager2.getCurrentItem() - 1, true));
+        btnRight.setOnClickListener(v -> viewPager2.setCurrentItem(viewPager2.getCurrentItem() + 1, true));
         setRecyclerView();
         observeNotes();
 
@@ -195,7 +189,8 @@ public class ParentNotes extends AppCompatActivity {
                 adapter.submitList(notesList);
                 executor.execute(() -> {
                     //Background work here
-                    noteDatabase.deleteNote(removeNote);
+                    ParentDatabase.deleteNote(removeNote);
+                    notedatabase.deleteNote(removeNote);
                 });
             }
 
@@ -225,7 +220,7 @@ public class ParentNotes extends AppCompatActivity {
             //Background work here
             handler.post(() -> {
                 //UI Thread work here
-                noteDatabase.getNotes().observe(this, notesList -> {
+                ParentDatabase.getNotes().observe(this, notesList -> {
                     if (notesList != null && !notesList.isEmpty()) {
                         adapter.submitList(notesList);
                         tvCount.setText(viewPager2.getCurrentItem()+1+"/"+notesList.size());
