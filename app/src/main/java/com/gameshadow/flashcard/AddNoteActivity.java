@@ -30,17 +30,14 @@ import java.util.concurrent.Executors;
 @SuppressLint("RestrictedApi")
 public class AddNoteActivity extends AppCompatActivity {
     private RelativeLayout addNoteBackground;
-    private View viewColor, viewFontColor;
-    private Button selectColor,selectFont, selectFontColor;
+    private View viewColor,viewFontColor;
+    private Button selectColor,selectFont,selectFontColor;
     private SeekBar fontSlider;
     private LinearLayout addNoteWindowBg;
-    private TextView add_note_delete, addNoteText;
-    private TextView close_Button;
+    private TextView add_note_delete,addNoteText,close_Button;
     private NoteDao noteDatabase;
     ExecutorService executor = Executors.newSingleThreadExecutor();
     Handler handler = new Handler(Looper.getMainLooper());
-    private DeleteClickListener deleteClickListener;
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,7 +85,6 @@ public class AddNoteActivity extends AppCompatActivity {
             } else {
                 startActivity(studentIntent);
             }
-
         });
         addNoteButton.setOnClickListener(v -> {
             if (add_note_question.getText().toString().trim().isEmpty()) {
@@ -189,7 +185,6 @@ public class AddNoteActivity extends AppCompatActivity {
             }
         };
         builder.setAdapter(colorAdapter, (dialog, which) -> {
-//                TypedArray ta = getResources().obtainTypedArray(R.array.colors);
             int selectedColor = colors[which];
             TypedArray ta = getResources().obtainTypedArray(R.array.colors);
             int colorToUse = ta.getColor(which, 0);
@@ -206,7 +201,7 @@ public class AddNoteActivity extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Choose Font Size");
 
-        // Define a list of font size options (you can customize this list)
+        // Define a list of font size options
         String[] fontSizes = {"Small", "Medium", "Large"};
 
         builder.setItems(fontSizes, (dialog, which) -> {
@@ -214,12 +209,11 @@ public class AddNoteActivity extends AppCompatActivity {
             int fontSize = getSelectedFontSize(which);
             addNoteText.setTextSize(fontSize);
         });
-
         AlertDialog dialog = builder.create();
         dialog.show();
     }
     private int getSelectedFontSize(int position) {
-        int[] fontSizes = {16, 24, 32, 40, 48}; // Define your desired font sizes
+        int[] fontSizes = {16, 24, 32, 40, 48}; // Define desired font sizes
         if (position >= 0 && position < fontSizes.length) {
             return fontSizes[position]; // Return the selected font size
         } else {
