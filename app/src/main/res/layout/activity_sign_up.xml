@@ -31,7 +31,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="353dp"
-        android:text="✖"
+        android:text="@string/x"
         android:textAlignment="center"
         android:textColor="#FFFFFFFF"
         android:textSize="24sp"

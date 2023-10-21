@@ -2,7 +2,7 @@ package com.gameshadow.flashcard;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
-import android.view.View;
+
 
 import androidx.lifecycle.LiveData;
 
@@ -18,7 +18,7 @@ public class UserRepository {
     public UserRepository(Context context) {
 
         NoteDatabase database = NoteDatabase.getDatabase(context);
-        userDao = (UserDao) database.userDao();
+        userDao = database.userDao();
         allUsers = userDao.getAllUsers();
     }
     public LiveData<List<Users>> getAllUsers() {

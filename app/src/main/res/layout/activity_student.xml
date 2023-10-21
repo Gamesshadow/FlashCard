@@ -44,13 +44,13 @@
         android:layout_marginEnd="20dp"
         android:textAllCaps="false"
         android:layout_marginBottom="30dp"
-        android:text="Previous Card" />
+        android:text="@string/previous_card" />
 
     <Button
         android:id="@+id/btnRight"
         android:layout_width="130dp"
         android:layout_height="wrap_content"
-        android:text="Next Card"
+        android:text="@string/next_card"
         android:textSize="12sp"
         android:textAllCaps="false"
         android:layout_marginStart="20dp"
@@ -79,7 +79,7 @@
         android:textSize="16sp"
         android:paddingHorizontal="30dp"
         android:textStyle="bold"
-        android:text="No cards found! Please click on the Plus button to add new cards"
+        android:text="@string/no_cards"
         android:layout_height="wrap_content"/>
 
 </RelativeLayout>

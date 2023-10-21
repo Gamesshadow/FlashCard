@@ -16,4 +16,16 @@
     <string name="no_cards">No cards found! Please click on the Plus button to add new cards</string>
     <string name="previous_card">Previous Card</string>
     <string name="count_start">0/0</string>
+    <string name="delete">Delete</string>
+    <string name="enter_question_here">Enter question here...</string>
+    <string name="enter_answer_here">Enter answer here...</string>
+    <string name="choose_background">Choose Background</string>
+    <string name="choose_font_size">Choose Font Size</string>
+    <string name="choose_font_color">Choose Font Color</string>
+    <string name="add_update_note">Add/Update Note</string>
+    <string name="x">x</string>
+    <string name="thanks">Thanks for learning with us!</string>
+    <string name="come_back_soon">Come back soon!</string>
+    <string name="logout">Logout</string>
+
 </resources>

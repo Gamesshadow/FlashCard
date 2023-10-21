@@ -40,7 +40,7 @@ public class StudentNotes extends AppCompatActivity {
     Handler handler = new Handler(Looper.getMainLooper());
     private final ActivityResultLauncher<Intent> newNoteResultLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
-            new ActivityResultCallback<ActivityResult>() {
+            new ActivityResultCallback<>() {
                 @Override
                 public void onActivityResult(ActivityResult result) {
                     if (result.getResultCode() == Activity.RESULT_OK && result.getData() != null) {
@@ -49,7 +49,7 @@ public class StudentNotes extends AppCompatActivity {
                         String noteText = result.getData().getStringExtra("note_text");
                         String note_question = result.getData().getStringExtra("note_question");
                         int noteBG = result.getData().getIntExtra("noteBG", 0);
-                        Note newNote = new Note(noteDateAdded, noteText != null ? noteText : "", noteBG,note_question);
+                        Note newNote = new Note(noteDateAdded, noteText != null ? noteText : "", noteBG, note_question);
                         executor.execute(() -> {
                             //Background work here
                             noteDatabase.addNote(newNote);
@@ -59,7 +59,7 @@ public class StudentNotes extends AppCompatActivity {
             });
     private final ActivityResultLauncher<Intent> editNoteResultLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
-            new ActivityResultCallback<ActivityResult>() {
+            new ActivityResultCallback<>() {
                 @Override
                 public void onActivityResult(ActivityResult result) {
                     if (result.getResultCode() == Activity.RESULT_OK && result.getData() != null) {
@@ -75,8 +75,7 @@ public class StudentNotes extends AppCompatActivity {
                                 //Background work here
                                 noteDatabase.updateNote(editedNote);
                             });
-                        }
-                        else {
+                        } else {
                             Note data = (Note) result.getData().getSerializableExtra("data");
                             List<Note> notesList = new ArrayList<>(adapter.getCurrentList());
 
@@ -109,18 +108,8 @@ public class StudentNotes extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         //Click Listeners
-        btnLeft.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                viewPager2.setCurrentItem(viewPager2.getCurrentItem() - 1, true);
-            }
-        });
-        btnRight.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                viewPager2.setCurrentItem(viewPager2.getCurrentItem() + 1, true);
-            }
-        });
+        btnLeft.setOnClickListener(v -> viewPager2.setCurrentItem(viewPager2.getCurrentItem() - 1, true));
+        btnRight.setOnClickListener(v -> viewPager2.setCurrentItem(viewPager2.getCurrentItem() + 1, true));
         setRecyclerView();
         observeNotes();
 
